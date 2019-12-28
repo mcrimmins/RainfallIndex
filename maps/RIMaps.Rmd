@@ -1,0 +1,74 @@
+---
+title: "Rainfall Index-Weather Station Comparison Maps"
+date: "Updated 12/27/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## {.tabset .tabset-fade}
+The maps on this page allow you to compare precipitation observations taken at official weather stations with gridded precipitation estimates used for the USDA Pasture, Rangeland, and Forage Program - Rainfall Index (RI). The RI is based on a gridded precipitation dataset developed and maintained by the NOAA Climate Prediction Center. The gridded dataset is developed by statistically interpolating station data from these official networks to a 0.25 by 0.25 degree grid. Each map shows the total precipitation for a 2-month period for the RI (grid) and stations (small circles) that could be contributing to the grid estimates. Use the +/- buttons to zoom in or out and use the cursor to pan to other areas of the map. Moving the cursor over the map will highlight the RI grid value or the station estimates when hovering over a small circle.     
+
+### July-Aug 2019 
+```{r}
+knitr::include_url("RIGridMap_2019-07-01to2019-08-31.html")
+```
+
+### Aug-Sep 2019 
+```{r}
+knitr::include_url("RIGridMap_2019-08-01to2019-09-30.html")
+```
+
+### Sep-Oct 2019
+```{r}
+knitr::include_url("RIGridMap_2019-09-01to2019-10-31.html")
+```
+
+### Oct-Nov 2019 
+```{r}
+knitr::include_url("RIGridMap_2019-10-01to2019-11-30.html")
+```
+#
+#### How to interpret the station information popup
+
+When you hover over a station (small circle on map) information about this station will popup. The official station name will be listed first followed by the primary and secondary network names to which the station belongs. Most stations will belong to more than one network. Almost all stations listed will most likely contribute observations to the calculation of Rainfall Index values, except for CoCoRAHS. The total precipitation for the 2-month period is shown in green. The number of missing days in the station record is also shown in red in the station info popup. Station records with numerous missing days will lead to large uncertainty in the total precipitation shown.   
+
+**Network codes and names**
+
+| Network Code  | Name                                                                        | Used by RI?  |
+| ------------- |:---------------------------------------------------------------------------:| ------------:|
+| COOP          | NOAA Cooperative Observers (historical volunteer network)                   | yes          |
+| GHCN          | Global Historical Climate Network (collection of all stations)              | yes          |
+| WBAN          | Weather-Bureau-Army-Navy (historical airport code)                          | yes          |
+| CoCoRAHS      | Community Collaborative Rain, Hail and Snow Network (new volunteer network) | no           |
+| FAA           | Federal Aviation Administration (airports)                                  | yes          |
+
+#### Other Rainfall Index resources:
+* [USDA Pasture, Rangeland, Forage Support Tool](https://prodwebnlb.rma.usda.gov/apps/prf)
+* [NOAA CPC Precipitaiton Monitoring (Rainfall Index Dataset)](https://www.cpc.ncep.noaa.gov/products/Global_Monsoons/American_Monsoons/NAMS_precip_monitoring.shtml)
+* [WWA Drought Index Insurance Analysis Laboratory](https://wwa.colorado.edu/themes/projects/drought_index.html)
+
+
+<div align="center">
+
+```{r  out.width = "20%"}
+knitr::include_graphics("coop2.jpg") 
+```
+
+  <em>[Climate Science Applications Program - University of Arizona Cooperative Extension](http://cals.arizona.edu/climate/)</em>
+
+[![Latest](GitHub-Mark-32px.png)](https://github.com/mcrimmins/RainfallIndex)
+<em>[https://github.com/mcrimmins/RainfallIndex](https://github.com/mcrimmins/RainfallIndex)</em>
+
+</div>
+
+  
+------
+<div align="center">
+  <h6>
+  Last Updated: "`r format(Sys.time(), '%m-%d-%Y')`"© 2019 The Arizona Board of Regents. All contents copyrighted. All rights reserved.</h6>
+</div>
+
+
