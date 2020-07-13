@@ -1,6 +1,6 @@
 ---
 title: "Rainfall Index-Weather Station Comparison Maps"
-date: "Updated 12/27/2019"
+date: "Updated 07/13/2020"
 output: html_document
 ---
 
@@ -29,6 +29,36 @@ knitr::include_url("RIGridMap_2019-09-01to2019-10-31.html")
 ### Oct-Nov 2019 
 ```{r}
 knitr::include_url("RIGridMap_2019-10-01to2019-11-30.html")
+```
+
+### Nov-Dec 2019 
+```{r}
+knitr::include_url("RIGridMap_2019-11-01to2019-12-31.html")
+```
+
+### Dec-Jan 2020 
+```{r}
+knitr::include_url("RIGridMap_2019-12-01to2020-01-31.html")
+```
+### Jan-Feb 2020 
+```{r}
+knitr::include_url("RIGridMap_2020-01-01to2020-02-29.html")
+```
+### Feb-Mar 2020 
+```{r}
+knitr::include_url("RIGridMap_2020-02-01to2020-03-31.html")
+```
+### Mar-Apr 2020 
+```{r}
+knitr::include_url("RIGridMap_2020-03-01to2020-04-30.html")
+```
+### Apr-May 2020 
+```{r}
+knitr::include_url("RIGridMap_2020-04-01to2020-05-31.html")
+```
+### May-Jun 2020 
+```{r}
+knitr::include_url("RIGridMap_2020-05-01to2020-06-30.html")
 ```
 #
 #### How to interpret the station information popup
@@ -68,7 +98,7 @@ knitr::include_graphics("coop2.jpg")
 ------
 <div align="center">
   <h6>
-  Last Updated: "`r format(Sys.time(), '%m-%d-%Y')`"© 2019 The Arizona Board of Regents. All contents copyrighted. All rights reserved.</h6>
+  Last Updated: "`r format(Sys.time(), '%m-%d-%Y')`"© 2020 The Arizona Board of Regents. All contents copyrighted. All rights reserved.</h6>
 </div>
 
 

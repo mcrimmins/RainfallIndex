@@ -15,7 +15,7 @@ library(htmlwidgets)
 add.months= function(date,n) seq(date, by = paste (n, "months"), length = 2)[2]
 
 # get specified date period
-date1<-"2019-07-01"
+date1<-"2020-05-01"
 date2<-as.character(add.months(as.Date(date1),2)-1)
 
 # get current year
@@ -161,3 +161,5 @@ saveWidget(leafMap, file=paste0("/home/crimmins/RProjects/RainfallIndex/maps/RIG
 library(rmarkdown)
 render('/home/crimmins/RProjects/RainfallIndex/maps/RIMaps.Rmd', output_file='RainfallIndexMaps.html',
        output_dir='/home/crimmins/RProjects/RainfallIndex/maps', clean=TRUE)
+
+# to do: reset leaflet zoom level/center, make grid more transparent, circles less transparent..
