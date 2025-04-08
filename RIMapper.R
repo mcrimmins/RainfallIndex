@@ -10,13 +10,16 @@ library(jsonlite)
 library(tidyverse)
 library(leafem)
 library(htmlwidgets)
+library(rmarkdown)
+library(knitr)
 
 # functions
 add.months= function(date,n) seq(date, by = paste (n, "months"), length = 2)[2]
 
 # get specified date period
-date1<-"2020-05-01"
-date2<-as.character(add.months(as.Date(date1),2)-1)
+date1<-"2021-08-01"
+date2<-"2021-09-30"
+#date2<-as.character(add.months(as.Date(date1),2)-1)
 
 # get current year
 currYr<-format(Sys.time(), "%Y")
@@ -33,6 +36,8 @@ precipCurr<-stack(paste0("/home/crimmins/RProjects/RainfallIndex/temp",currYr,".
  
 allPrecip<-rotate(stack(precipPrev,precipCurr))
 
+#allPrecip<-rotate(precipPrev)
+
 # clip out to AZ
 e <- extent(-115, -109, 31, 37)
 subPrecip <- crop(allPrecip, e)
@@ -48,7 +53,7 @@ subPrecip <- crop(allPrecip, e)
 # sum up RI precip
 lyr1<-paste0("X",format(as.Date(date1), "%Y"),".",format(as.Date(date1), "%m"),".",format(as.Date(date1), "%d"))
 lyr2<-paste0("X",format(as.Date(date2), "%Y"),".",format(as.Date(date2), "%m"),".",format(as.Date(date2), "%d"))
-sumPrecip<-calc(subPrecip[[which(names(subPrecip)==lyr1):which(names(subPrecip)==lyr2)]], sum)/25.4 
+sumPrecip<-calc(subPrecip[[which(names(subPrecip)==lyr1):which(names(subPrecip)==lyr2)]], sum, na.rm=TRUE)/25.4 
 
 # develop mesh grid
 RIGrid<-rasterToPolygons(sumPrecip[[1]], na.rm = TRUE)
@@ -154,11 +159,13 @@ leafMap<-leaflet() %>% addProviderTiles(providers$Esri.WorldTopoMap) %>%
                    color =  pal(fullDF$totalPrecip),
                    label = lapply(labs, htmltools::HTML))
 
+#library(widgetframe)
+#w<-frameWidget(leafMap)
+#saveWidgetframe(w, file=paste0("/home/crimmins/RProjects/RainfallIndex/maps/RIGridMap_",date1,"to",date2,".html"), selfcontained = FALSE)
+
 saveWidget(leafMap, file=paste0("/home/crimmins/RProjects/RainfallIndex/maps/RIGridMap_",date1,"to",date2,".html"), selfcontained = FALSE)
 
-
 # create Website with markdown ----
-library(rmarkdown)
 render('/home/crimmins/RProjects/RainfallIndex/maps/RIMaps.Rmd', output_file='RainfallIndexMaps.html',
        output_dir='/home/crimmins/RProjects/RainfallIndex/maps', clean=TRUE)
 
